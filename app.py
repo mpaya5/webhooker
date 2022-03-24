@@ -30,26 +30,6 @@ def webhook():
     data = json.loads(request.data)
     passhprase = data['passhprase']
 
-    if passhprase == "somos millonarios":
-        data_send = {
-            "passhprase": "lo vamos a ser"
-        }
-
-    
-    if passhprase == "prueba":
-        data_send = {
-            "passhprase": "prueba"
-        }
-
-        """
-        for url in urls:
-            url_use = url[1]
-            r = requests.post(url_use, data=json.dumps(data_send), headers={'Content-Type': 'application/json'})
-        """
-        return {
-            "passhprase": passhprase,
-            "data": data
-        }
     """
     if passhprase == "VOL-Long":
         actualizar_csv(symbol, number)
