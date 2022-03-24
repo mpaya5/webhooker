@@ -30,6 +30,7 @@ def webhook():
     data = json.loads(request.data)
     passhprase = data['passhprase']
 
+    
     """
     if passhprase == "VOL-Long":
         actualizar_csv(symbol, number)
@@ -74,7 +75,7 @@ def webhook():
         #Actualizamos CSV
         actualizar_csv(symbol, number)
 
-        df = pd.read_csv('token.csv')
+        df = pd.read_csv('csv_files/token.csv')
         short = df['short'].values[-2]
         middle = df['middle'].values[-2]
         long = df['long'].values[-2]
@@ -83,7 +84,7 @@ def webhook():
 
 
         # Recoger última EMA
-        list_emas = pd.read_csv('emas.csv')
+        list_emas = pd.read_csv('csv_files/emas.csv')
 
         last_ema = list_emas['ema'].values[-1]
 
@@ -102,7 +103,7 @@ def webhook():
 
                 else:
                     #Recoger bull_fractal
-                    fractals_long = pd.read_csv('fr_long.csv')
+                    fractals_long = pd.read_csv('csv_files/fr_long.csv')
                     fractal_long = fractals_long['value'].values[-1]
 
                     data_send = {
@@ -120,7 +121,7 @@ def webhook():
                     ema = "long"
 
                     miDato = [ema]
-                    miArchivo = open('emas.csv', 'a+')
+                    miArchivo = open('csv_files/emas.csv', 'a+')
                     writer = csv.writer(miArchivo)
                     writer.writerow(miDato)
                     miArchivo.close()    
@@ -142,7 +143,7 @@ def webhook():
                     break
 
                 else:
-                    fractals_short = pd.read_csv('fr_short.csv')
+                    fractals_short = pd.read_csv('csv_files/fr_short.csv')
                     fractal_short = fractals_short['value'].values[-1]
 
                     data_send = {
@@ -160,7 +161,7 @@ def webhook():
                     ema = "short"
 
                     miDato = [ema]
-                    miArchivo = open('emas.csv', 'a+')
+                    miArchivo = open('csv_files/emas.csv', 'a+')
                     writer = csv.writer(miArchivo)
                     writer.writerow(miDato)
                     miArchivo.close()    
@@ -186,7 +187,7 @@ def webhook():
                     ema = "cruce"
 
                     miDato = [ema]
-                    miArchivo = open('emas.csv', 'a+')
+                    miArchivo = open('csv_files/emas.csv', 'a+')
                     writer = csv.writer(miArchivo)
                     writer.writerow(miDato)
                     miArchivo.close()    

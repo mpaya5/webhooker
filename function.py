@@ -71,7 +71,7 @@ def start(symbol, number):
     n=1
     df = df.head(-n)
 
-    df.to_csv('token.csv', index=False, encoding='utf-8')
+    df.to_csv('csv_files/token.csv', index=False, encoding='utf-8')
 
 # start("SRMUSDT", 4)
 
@@ -80,7 +80,7 @@ def actualizar_csv(symbol, number):
     while True:
         try:
             ##VALORES
-            df1 = pd.read_csv('token.csv')
+            df1 = pd.read_csv('csv_files/token.csv')
             # Eliminar última línea ya que no se va a cerrar con esos valores:
             n=24
             df1 = df1.head(-n)
@@ -134,7 +134,7 @@ def actualizar_csv(symbol, number):
 
 
             # Actualizar el CSV con los nuevos valores recogidos
-            df.to_csv('token.csv', index=False, encoding='utf-8')
+            df.to_csv('csv_files/token.csv', index=False, encoding='utf-8')
 
 
 
@@ -150,7 +150,7 @@ def actualizar_csv(symbol, number):
 
 
 def fractals():
-    df = pd.read_csv('token.csv')
+    df = pd.read_csv('csv_files/token.csv')
 
     #Cuantos lineas hay
     index = df.index
@@ -173,7 +173,7 @@ def fractals():
                 
                 #Añadir a la bd
                 FRLong = [value_fr_long,n]
-                miFRLcsv = open('fr_long.csv', 'a+')
+                miFRLcsv = open('csv_files/fr_long.csv', 'a+')
                 writeFRL = csv.writer(miFRLcsv)
                 writeFRL.writerow(FRLong)
                 miFRLcsv.close()
@@ -200,7 +200,7 @@ def fractals():
 
                 #Añadir a la bd
                 FRShort = [value_fr_short,n]
-                miFRScsv = open('fr_short.csv', 'a+')
+                miFRScsv = open('csv_files/fr_short.csv', 'a+')
                 writeFRS = csv.writer(miFRScsv)
                 writeFRS.writerow(FRShort)
                 miFRScsv.close()
