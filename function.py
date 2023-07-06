@@ -14,10 +14,6 @@ import math
 from binance.enums import *
 from binance.client import Client
 
-
-api_key = "ZI8hWrGFfO5SjupxGngZPdX6qA2Hjx7nsVU7S6UwEmFbmSrcWNGMWbWSCSWA9zxW"
-secret_key = "RG7MIqlBIX4d0S3xNVW5IMVxAetAmkpLHDrhU7j0MBvmQ1hJsPHSezJeOzz8duCT"
-
 client = Client(api_key, secret_key, tld='com')
 
 def round_decimals_down(number:float, decimals:int=2):
